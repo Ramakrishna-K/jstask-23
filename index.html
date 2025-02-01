@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-list</title>
+    <style>
+        body{
+            background-color: rgb(103, 232, 232);
+            background-image: url(./sun.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode:color-dodge;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <script>
+        let input1=document.createElement("input")
+        input1.setAttribute("placeholder","enter what to do.......")
+        input1.style.width="300px"
+        input1.style.width="90%"
+        input1.style.backgroundColor="orange"
+        input1.style.height="30px"
+        input1.style.borderRadius="40px"
+        input1.style.border="none"
+        input1.style.color="white"
+        input1.style.fontFamily="sansarif"
+        input1.style.fontSize="20px"
+        document.body.appendChild(input1)
+
+        let but=document.createElement("button")
+        but.innerText="Enter"
+        but.setAttribute("id","butt")
+        but.style.backgroundColor="red"
+        but.style.width="8%"
+        but.style.height="35px"
+        but.style.borderRadius="40px"
+        but.style.border="none"
+        but.style.color="white"
+        but.style.cursor="pointer"
+        document.body.appendChild(but)
+
+        let br1=document.createElement("br")
+        document.body.appendChild(br1)
+        let br2=document.createElement("br")
+        document.body.appendChild(br2)
+
+        let input2=document.createElement("input")
+        input2.setAttribute("placeholder","enter what u want to edit .......")
+        input2.style.width="300px"
+        input2.style.width="100%"
+        input2.style.backgroundColor="lightgreen"
+        input2.style.height="30px"
+        input2.style.borderRadius="40px"
+        input2.style.border="none"
+        input2.style.color="black"
+        input2.style.fontFamily="sansarif"
+        input2.style.fontSize="20px"
+        document.body.appendChild(input2)
+
+        let cont=document.getElementsByClassName("container")[0]
+        cont.style.border="5px solid red"
+        cont.style.height="100%"
+        cont.style.width="100%"
+        cont.style.backgroundColor="transparent"
+        document.body.appendChild(cont)
+        but.addEventListener("click",()=>{
+            
+            if(input1.value=="" && input2.value==""){
+                alert("invalid value--enter the correct value")
+            }else{
+            let divv=document.createElement("div")
+            divv.style.border="2px groove black"
+            divv.style.width="100%"
+            divv.style.height='100%'
+            cont.appendChild(divv)
+
+            let h1=document.createElement("h2")
+            h1.innerText=input1.value
+            divv.appendChild(h1)
+            
+            
+            let edit=document.createElement("button")
+            edit.innerText="edit"
+            edit.style.width="250px"
+            edit.style.height="20px"
+            edit.style.border="none"
+            edit.style.borderRadius="30px"
+            edit.setAttribute("id","edit")
+            divv.appendChild(edit)
+
+            let del=document.createElement("button")
+            del.style.backgroundColor="red"
+            del.innerText="Delete"
+            del.style.color="white"
+            del.style.width="250px"
+            del.style.height="20px"
+            del.style.border="none"
+            del.style.borderRadius="30px"
+            del.setAttribute("id","delete")
+            divv.appendChild(del)
+
+            let comp=document.createElement("button")
+            // comp.style.color="white"
+            // comp.style.backgroundColor="green"
+            comp.innerText="completed"
+            comp.style.width="250px"
+            comp.style.height="20px"
+            comp.style.border="none"
+            comp.style.borderRadius="30px"
+            comp.setAttribute("id","edit")
+            divv.appendChild(comp)
+
+            edit.addEventListener("click",()=>{
+                h1.innerText=input2.value
+                edit.style.color="blue"
+                edit.style.backgroundColor="yellow"
+                alert("enter text input2 before clicking on edit button")
+                
+                input2.value=""
+            })
+
+            del.addEventListener("click",()=>{
+                cont.removeChild(divv)
+            })
+
+            comp.addEventListener("click",()=>{
+                comp.style.color="white"
+                comp.style.backgroundColor="green"
+            })
+            input1.value=""
+            }
+        })
+
+    </script>
+</body>
+</html>
